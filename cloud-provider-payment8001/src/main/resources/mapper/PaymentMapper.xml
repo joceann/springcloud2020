@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.dao.PaymentDao">
-    <insert id="create" parameterType="Payment" keyProperty="id" useGeneratedKeys="true">
+    <insert id="create" parameterType="com.example.cloudcommon.Payment" keyProperty="id" useGeneratedKeys="true">
         insert into payment(serial) values (#{serial})
     </insert>
 
-    <resultMap id="BaseResultMap" type="com.example.entity.Payment">
+    // TODO type issue
+    <resultMap id="BaseResultMap" type="com.example.cloudcommon.Payment">
         <id column="id" property="id" jdbcType="BIGINT"/>
         <id column="serial" property="serial" jdbcType="VARCHAR"/>
     </resultMap>

@@ -1,17 +1,17 @@
 package com.example.controller;
 
-import com.example.common.CommonResult;
-import com.example.entity.Payment;
+import com.example.cloudcommon.entity.CommonResult;
+import com.example.cloudcommon.entity.Payment;
 import com.example.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by JOCEAN on 2020/8/19.
  */
 @RestController
+@RequestMapping("/payment")
 @Slf4j
 public class PaymentController {
 
@@ -19,7 +19,7 @@ public class PaymentController {
 	private PaymentService paymentService;
 
 	@PostMapping("/create")
-	public CommonResult create(Payment payment) {
+	public CommonResult create(@RequestBody Payment payment) {
 		int result = paymentService.create(payment);
 		log.info("===========insert result: " + result);
 		if (result > 0) {
@@ -32,7 +32,7 @@ public class PaymentController {
 	@GetMapping("/getPayment/{id}")
 	public CommonResult getPayment(@PathVariable("id") Long id) {
 		Payment payment = paymentService.getPayment(id);
-		System.out.println(id);
+		System.out.println(id+"ffddfdf222");
 		if (payment != null) {
 			return new CommonResult(200, "query successfully", payment);
 		} else {

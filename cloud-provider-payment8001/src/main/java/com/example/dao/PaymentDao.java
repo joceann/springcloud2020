@@ -1,6 +1,6 @@
 package com.example.dao;
 
-import com.example.entity.Payment;
+import com.example.cloudcommon.entity.Payment;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
