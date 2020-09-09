@@ -1,9 +1,8 @@
-
 server:
   port: 8001
 spring:
   application:
-    name: cloud-provider-payment8001
+    name: cloud-payment8001-service
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     password: root
@@ -12,3 +11,10 @@ spring:
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml
   type-aliases-package: com.example.entity
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://eureka7001.com:7001/eureka, http://eureka7002.com:7002/eureka
